@@ -22,24 +22,25 @@ def extract_stop_names(li_stops):
 
 
 if __name__ == '__main__':
-    tram_no = 16
-    URL = f'https://www.ztm.poznan.pl/pl/rozklad-jazdy/{tram_no}'
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    for tram_no in range(7, 19):
+        print(f"Scraping stops for tram: {tram_no}")
+        URL = f'https://www.ztm.poznan.pl/pl/rozklad-jazdy/{tram_no}'
+        page = requests.get(URL)
+        soup = BeautifulSoup(page.content, 'html.parser')
 
-    div_there = soup.findAll('div', class_='line-direction')[0]
-    div_back = soup.findAll('div', class_='line-direction')[1]
+        div_there = soup.findAll('div', class_='line-direction')[0]
+        div_back = soup.findAll('div', class_='line-direction')[1]
 
-    li_stops_there = div_there.find('ul').findAll('li', class_='line-stop--main')
-    li_stops_back = div_back.find('ul').findAll('li', class_='line-stop--main')
+        li_stops_there = div_there.find('ul').findAll('li', class_='line-stop--main')
+        li_stops_back = div_back.find('ul').findAll('li', class_='line-stop--main')
 
-    # Extract stop names there and back
-    stops_there_names = extract_stop_names(li_stops_there)
-    stops_back_names = extract_stop_names(li_stops_back)
+        # Extract stop names there and back
+        stops_there_names = extract_stop_names(li_stops_there)
+        stops_back_names = extract_stop_names(li_stops_back)
 
-    # Save stop names to a file
-    save_stop_names(f"data/{tram_no}there", stops_there_names)
-    save_stop_names(f"data/{tram_no}back", stops_back_names)
+        # Save stop names to a file
+        save_stop_names(f"data/{tram_no}there", stops_there_names)
+        save_stop_names(f"data/{tram_no}back", stops_back_names)
 
 
-    print("Done")
+        print("Done")
