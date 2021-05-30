@@ -30,8 +30,8 @@ if __name__ == '__main__':
     div_there = soup.findAll('div', class_='line-direction')[0]
     div_back = soup.findAll('div', class_='line-direction')[1]
 
-    li_stops_there = div_there.find('ul').findAll('li')
-    li_stops_back = div_back.find('ul').findAll('li')
+    li_stops_there = div_there.find('ul').findAll('li', class_='line-stop--main')
+    li_stops_back = div_back.find('ul').findAll('li', class_='line-stop--main')
 
     # Extract stop names there and back
     stops_there_names = extract_stop_names(li_stops_there)
