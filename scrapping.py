@@ -38,8 +38,8 @@ if __name__ == '__main__':
     stops_back_names = extract_stop_names(li_stops_back)
 
     # Save stop names to a file
-    save_stop_names(f"data/{tram_no}there.txt", stops_there_names)
-    save_stop_names(f"data/{tram_no}back.txt", stops_back_names)
+    save_stop_names(f"data/{tram_no}there", stops_there_names)
+    save_stop_names(f"data/{tram_no}back", stops_back_names)
 
 
     print("Done")
