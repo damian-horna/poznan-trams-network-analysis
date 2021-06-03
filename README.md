@@ -16,3 +16,10 @@ SZWA42, Szwajcarska, ?, ?
 ```
 
 2) Następnie dla każdej linii, np. 16 dwa pliki: 16there oraz 16back, a wewnątrz po kolei kody przystanków.
+
+
+# Setup
+```
+pip install -r requirements.txt
+jupyter notebook
+```
